@@ -1,4 +1,8 @@
 {
+  "name": "backend-banck-graphql",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "dependencies": {
     "apollo-server-koa": "^3.13.0",
     "dotenv": "^16.5.0",
