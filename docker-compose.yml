@@ -1,0 +1,10 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongo_bank
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: bank
