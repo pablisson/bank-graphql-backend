@@ -4,7 +4,7 @@ import { createYoga } from 'graphql-yoga'
 import { schema } from '../../graphql/schema'
 
 describe('Inicializando GraphQL API', () => {
-  let app: Koa // = new Koa()
+  let app: Koa
 
   beforeAll(() => {
     app = new Koa()
