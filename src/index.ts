@@ -1,5 +1,4 @@
 import Koa from 'koa'
-import bodyParser from 'koa-bodyparser'
 import { createYoga } from 'graphql-yoga'
 import { schema } from './graphql/schema'
 import { connectDatabase } from './config/database'
@@ -13,9 +12,8 @@ const startProject = async () => {
     schema,
     graphqlEndpoint: '/graphql',
   })
-  app.use(bodyParser())
   app.use(async (ctx) => {
-    if (ctx.path === '/graphql' && ctx.method === 'GET') {
+    if (ctx.path === '/graphql') {
       await yoga(ctx.req, ctx.res)
       ctx.respond = false
     }
