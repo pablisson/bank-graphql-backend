@@ -1,34 +1,9 @@
 import { makeExecutableSchema } from '@graphql-tools/schema'
-import { GraphQLSchema, GraphQLObjectType, GraphQLString } from 'graphql'
+import { mergeTypeDefs, mergeResolvers } from '@graphql-tools/merge'
+import { baseTypeDefs } from './base/typeDefs'
+import { baseResolver } from './base/resolver'
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const QueryType = new GraphQLObjectType({
-  name: 'Query',
-  fields: {
-    healthCheck: {
-      type: GraphQLString,
-      resolve: () => 'OK',
-    },
-  },
-})
-export const schema: GraphQLSchema = makeExecutableSchema({
-  typeDefs: [],
-  resolvers: [],
-  resolverValidationOptions: {
-    requireResolversForResolveType: 'ignore',
-  },
-}) as GraphQLSchema
+const typeDefs = mergeTypeDefs([baseTypeDefs])
+const resolvers = mergeResolvers([baseResolver])
 
-// const typeDefs = `
-//   type Query {
-//     hello: String!
-//   }
-// `
-
-// const resolvers = {
-//   Query: {
-//     hello: () => 'Olá do GraphQL Tools',
-//   },
-// }
-
-// export const schema = makeExecutableSchema({ typeDefs, resolvers })
+export const schema = makeExecutableSchema({ typeDefs, resolvers })
