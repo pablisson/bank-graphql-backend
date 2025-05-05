@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@graphql-tools/merge": "^9.0.24",
     "@graphql-tools/schema": "^10.0.23",
     "@types/jest": "^29.5.14",
     "@types/supertest": "^6.0.3",
@@ -36,6 +37,7 @@
     "gopd": "^1.2.0",
     "graphql": "^16.11.0",
     "graphql-relay": "^0.10.2",
+    "graphql-tag": "^2.12.6",
     "graphql-yoga": "^5.13.4",
     "has-symbols": "^1.1.0",
     "has-tostringtag": "^1.0.2",
