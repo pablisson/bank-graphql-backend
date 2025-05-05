@@ -1,15 +1,9 @@
 import { makeExecutableSchema } from '@graphql-tools/schema'
+import { mergeTypeDefs, mergeResolvers } from '@graphql-tools/merge'
+import { baseTypeDefs } from './base/typeDefs'
+import { baseResolver } from './base/resolver'
 
-const typeDefs = `
-  type Query {
-    hello: String!
-  }
-`
-
-const resolvers = {
-  Query: {
-    hello: () => 'Olá do GraphQL Tools',
-  },
-}
+const typeDefs = mergeTypeDefs([baseTypeDefs])
+const resolvers = mergeResolvers([baseResolver])
 
 export const schema = makeExecutableSchema({ typeDefs, resolvers })
